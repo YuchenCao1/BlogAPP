@@ -1,5 +1,7 @@
 import React from "react";
 
-export default function Write() {
+const Write = () => {
   return <div>Write</div>;
-}
+};
+
+export default Write;

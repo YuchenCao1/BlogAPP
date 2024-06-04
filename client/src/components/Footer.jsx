@@ -1,5 +1,14 @@
 import React from "react";
 
-export default function Footer() {
-  return <div>Footer</div>;
-}
+const Footer = () => {
+  return (
+    <footer>
+      <img src="../../images/logo.jpg" alt="" />
+      <span>
+        Made with and <b>React.js</b>.
+      </span>
+    </footer>
+  );
+};
+
+export default Footer;
