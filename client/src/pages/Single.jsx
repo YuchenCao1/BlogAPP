@@ -1,5 +1,5 @@
 import React from "react";
 
 export default function Single() {
-  return <div></div>;
+  return <div>Single</div>;
 }

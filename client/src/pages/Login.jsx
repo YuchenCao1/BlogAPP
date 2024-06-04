@@ -1,5 +1,5 @@
 import React from "react";
 
 export default function s() {
-  return <div></div>;
+  return <div className="login">Login</div>;
 }
