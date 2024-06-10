@@ -46,14 +46,23 @@ export const login = (req, res) => {
     const { password, ...other } = data[0];
 
     res
-      .cookie("access_token", "1234", {
+      .cookie("access_token", token, {
         httpOnly: true,
         path: "/",
-        sameSite: "Lax", // 或 'None' 如果是 HTTPS
-        secure: process.env.NODE_ENV === "production", // 在生产环境中启用 Secure
+        sameSite: "Lax",
+        secure: process.env.NODE_ENV === "production",
       })
       .status(200)
       .json(other);
   });
 };
-export const logout = (req, res) => {};
+export const logout = (req, res) => {
+  res
+    .clearCookie("access_token", {
+      path: "/", // Make sure path matches the path used when setting the cookie
+      sameSite: "Lax", // This should match the setting used when the cookie was set
+      secure: process.env.NODE_ENV === "production", // Reflect environment condition as in set
+    })
+    .status(200)
+    .json("User has been logged out.");
+};
